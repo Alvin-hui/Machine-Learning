@@ -27,4 +27,12 @@ from numpy import *
 #print(kNN.ckassifyPerson())
 #print(kNN.img2vector('/Users/albert_king/Desktop/Machine-Learning/KNN/0_13.txt'))
 
-kNN.handwritingClassTest()
+#kNN.handwritingClassTest()
+
+import os
+
+#current_path = os.path.dirname(__file__)
+
+#father_path = os.path.abspath(os.path.dirname(current_path) + os.path.sep + "." + r"\test.py")
+#print(current_path)
+#print(father_path)

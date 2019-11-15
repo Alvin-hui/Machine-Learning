@@ -1,7 +1,7 @@
 from numpy import *
 import operator
 from os import listdir
-
+import os
 def createDataSet():
     group = array([[1.0, 1.1], [1.0, 1.0], [0, 0], [0, 0.1]])
     lables = ['A', 'A', 'B', 'B']
@@ -50,9 +50,11 @@ def autoNorm(dataSet):
     normDataSet = normDataSet/tile(ranges, (m, 1))
     return normDataSet, ranges, minVals
 
+
 def datingClassTest():
+    fileName = os.path.abspath(os.path.dirname(__file__) + os.path.sep + "." + r"\datingTestSet2.txt")
     hoRatio = 0.10
-    datingDataMat, datingLables = file2matrix('/Users/albert_king/Desktop/Machine-Learning/KNN/datingTestSet2.txt')
+    datingDataMat, datingLables = file2matrix(fileName)
     normMat, ranges, minVals = autoNorm(datingDataMat)
     m = normMat.shape[0]
     numTestVecs = int(m*hoRatio)
@@ -68,7 +70,8 @@ def ckassifyPerson():
     percenTats = float(input('percentage of time spent playing video games?'))
     ffMiles = float(input('frequen flier miles earned per year?'))
     iceCream = float(input('liters of ice cream consumed per year?'))
-    datingDataMat, datingLables = file2matrix('/Users/albert_king/Desktop/Machine-Learning/KNN/datingTestSet2.txt')
+    fileName = os.path.abspath(os.path.dirname(__file__) + os.path.sep + "." + r"\datingTestSet2.txt")
+    datingDataMat, datingLables = file2matrix(fileName)
     normMat, ranges, minVals = autoNorm(datingDataMat)
     inArr = array([ffMiles, percenTats, iceCream])
     classifierResult = classify0((inArr-minVals)/ranges, normMat, datingLables, 3)
@@ -86,6 +89,8 @@ def img2vector(filename):
 
 def handwritingClassTest():
     hwLables = []
+
+    fileName = os.path.abspath(os.path.dirname(__file__) + os.path.sep + "." + r"\datingTestSet2.txt")
     trainingFileList = listdir('/Users/albert_king/Desktop/machinelearninginaction/Ch02/digits/trainingDigits')
     m = len(trainingFileList)
     trainingMat = zeros((m, 1024))
