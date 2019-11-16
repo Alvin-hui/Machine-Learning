@@ -27,7 +27,7 @@ from numpy import *
 #print(kNN.ckassifyPerson())
 #print(kNN.img2vector('/Users/albert_king/Desktop/Machine-Learning/KNN/0_13.txt'))
 
-#kNN.handwritingClassTest()
+kNN.handwritingClassTest()
 
 import os
 
